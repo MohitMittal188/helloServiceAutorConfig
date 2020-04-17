@@ -11,11 +11,18 @@ import com.example.helloservice.HelloService;
 
 @Configuration
 @ConditionalOnClass(HelloService.class)
+@EnableConfigurationProperties(HelloConfiguration.class)
 public class HelloAutoConfiguration {
+	
+	HelloConfiguration helloConfiguration;
+	
+	HelloAutoConfiguration(HelloConfiguration helloConfiguration){
+		this.helloConfiguration = helloConfiguration;
+	}
 	
 	@Bean
 	@ConditionalOnMissingBean
 	HelloService getHelloService() {
-		return new ConsoleHelloService("hello","!");
+		return new ConsoleHelloService(helloConfiguration.getPrefix(),helloConfiguration.getSuffix());
 	}
 }

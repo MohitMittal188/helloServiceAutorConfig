@@ -14,9 +14,9 @@ public class HelloAppApplication {
 		SpringApplication.run(HelloAppApplication.class, args);
 	}
 	
-	@Bean
-	HelloService getHelloServiceBean() {
-		return new ConsoleHelloService("Howdy","!");
-	}
+//	@Bean
+//	HelloService getHelloServiceBean() {
+//		return new ConsoleHelloService("Howdy","!");
+//	}
 }	
 
